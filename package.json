@@ -18,6 +18,8 @@
   "dependencies": {
     "@notionhq/client": "^2.3.0",
     "axios": "^1.8.4",
-    "dotenv": "^16.4.7"
+    "axios-cookiejar-support": "^6.0.5",
+    "dotenv": "^16.4.7",
+    "tough-cookie": "^6.0.1"
   }
 }
