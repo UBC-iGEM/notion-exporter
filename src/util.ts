@@ -431,6 +431,19 @@ export async function parsePage({
                 markdownSyntax,
             });
         }
+
+        // If this child is the last in a series of list items, add an extra newline for content separation
+        if (markdownSyntax) {
+            const curr = blocks[i].type;
+            const next = blocks[i + 1]?.type;
+            if (
+                (curr === "bulleted_list_item" &&
+                    next !== "bulleted_list_item") ||
+                (curr === "numbered_list_item" && next !== "numbered_list_item")
+            ) {
+                content.value = content.value.concat("\n");
+            }
+        }
     }
 
     // Closing tag for root bulleted list item
